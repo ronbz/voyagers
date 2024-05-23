@@ -15,5 +15,6 @@ jobs:
      env:
        JFURL: ${{ secrets.JFURL }}
        JFTOKEN: ${{ secrets.JFTOKEN }}
-   - run: echo $JF_URL/artifactory/ronbz-generic-local/
+   - run: echo $JFURL/artifactory/ronbz-generic-local/
+   - run: echo ${{ secrets.JFURL }}
    - run: curl -X PUT -uvoyagers2:$JFTOKEN -T "voy.txt" $JFURL/artifactory/ronbz-generic-local/voy.txt
