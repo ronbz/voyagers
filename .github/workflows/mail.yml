@@ -15,4 +15,4 @@ jobs:
      env:
        JF_URL: ${{ secrets.JFURL }}
        JFTOKEN: ${{ secrets.JFTOKEN }}
-   - run: curl -X PUT -uvoyagers2:$JFTOKEN -T /Users/ronbz/Desktop/gitfolder/voy.txt $JF_URL+"artifactory/ronbz-generic-local/"
+   - run: curl -X PUT -uvoyagers2:$JFTOKEN -T "/Users/ronbz/Desktop/gitfolder/voy.txt" $JF_URL+"artifactory/ronbz-generic-local/"
