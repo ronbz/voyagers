@@ -11,4 +11,8 @@ jobs:
    steps:
    - name: Checkout
      uses: actions/checkout@v4
-   - run: curl -X PUT -uvoyagers2:"$JFTOKEN" -T /Users/ronbz/Desktop/gitfolder/voy.txt "$JFURL"+”artifactory/ronbz-generic-local/"
+   - uses: jfrog/setup-jfrog-cli@v3
+     env:
+       JF_URL: ${{ secrets.JFURL }}
+       JFTOKEN: ${{ secrets.JFTOKEN }}
+   - run: curl -X PUT -uvoyagers2:$JFTOKEN -T /Users/ronbz/Desktop/gitfolder/voy.txt "$JFURL"+”artifactory/ronbz-generic-local/"
