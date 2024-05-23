@@ -1,0 +1,15 @@
+name: "JFrog CLI"
+
+
+on: push
+
+
+jobs:
+ build:
+   runs-on: ubuntu-latest
+  
+   steps:
+   - name: Checkout
+     uses: actions/checkout@v4
+   - run:
+	curl -X PUT -uvoyagers2:JFTOKEN -T /Users/ronbz/Desktop/gitfolder/voy.txt JFURL+”artifactory/ronbz-generic-local/"
