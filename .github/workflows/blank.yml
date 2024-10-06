@@ -12,4 +12,5 @@ jobs:
     - uses: jfrog/setup-jfrog-cli@v4
     - run: echo $JFURL/artifactory/ronbz-docker-local/
     - run: echo ${{ secrets.JFURL }}
+    - run: jf rt ping
     - run: curl -X PUT -uadmin:${{ secrets.JFTOKEN }} -T "voy.txt" ${{ secrets.JFURL }}/artifactory/ronbz-docker-local/voy.txt
