@@ -1,12 +1,7 @@
 
-name: JfrogCLI
+name: "JfrogTEST"
 
-on:
-  push:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+on: push
 
 jobs:
   build:
