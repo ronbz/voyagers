@@ -15,4 +15,10 @@ jobs:
         JF_ACCESS_TOKEN: ${{ secrets.JFTOKEN }}
     - run: echo ${{ vars.JF_URL }}
     - run: jf rt ping
-    - run: curl -X PUT -uronbz:${{ secrets.JFTOKEN }} -T "voy.txt" ${{ vars.JF_URL }}/artifactory/ronbz1-docker-local/voy.txt
+    ##- run: curl -X PUT -uronbz:${{ secrets.JFTOKEN }} -T "voy.txt" ${{ vars.JF_URL }}/artifactory/ronbz1-docker-local/voy.txt
+    - name: Docker
+      run: |
+        docker build -t testfile:1 .
+        docker tag testfile:1 kimt.jfrog.io/ronbz1-docker-local/testfile:1
+    - run: jf docker scan kimt.jfrog.io/ronbz1-docker-local/testfile:1
+    - run: docker push kimt.jfrog.io/ronbz1-docker-local/testfile:1
