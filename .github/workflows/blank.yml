@@ -15,5 +15,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - uses: jfrog/setup-jfrog-cli@v4
-    - run: echo $JFURL/artifactory/ronbz-generic-local/
+    - run: echo $JFURL/artifactory/ronbz-docker-local/
     - run: echo ${{ secrets.JFURL }}
+    - run: curl -X PUT -uadmin:${{ secrets.JFTOKEN }} -T "voy.txt" ${{ secrets.JFURL }}/artifactory/ronbz-docker-local/voy.txt
