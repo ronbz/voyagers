@@ -31,6 +31,12 @@ jobs:
     - run: |
         docker login kimt.jfrog.io -u ${{ secrets.JFUSERNAME }} --password ${{ secrets.JFPASSWORD }}
         docker push kimt.jfrog.io/ronbz1-docker-local/testfile:1
+    - name: Deploy build-info
+      run: |
+          jf rt build-add-git 
+          jf rt build-collect-env 
+          jf rt build-publish
+          jf build-scan
 
 
               
